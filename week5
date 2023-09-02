@@ -1,0 +1,39 @@
+class MenuItem {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+}
+
+class Menu {
+  constructor() {
+    this.items = [];
+  }
+
+  addItem(item) {
+    this.items.push(item);
+  }
+
+  viewMenu() {
+    console.log("Here is the menu:")
+    for (let item of this.items) {
+      console.log(item.name + ": $" + item.price);
+    }
+  }
+
+  deleteItem(itemName) {
+    this.items = this.items.filter(item => item.name !== itemName);
+  }
+}
+
+const menu = new Menu();
+
+menu.addItem(new MenuItem("Cheeseburger", 20));
+menu.addItem(new MenuItem("Fries", 7));
+menu.addItem(new MenuItem("Sweet Tea", 3));
+
+menu.viewMenu();
+
+menu.deleteItem("Cheeseburger");
+
+menu.viewMenu();
